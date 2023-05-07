@@ -70,33 +70,34 @@ bundle exec rspec
 
 ## Handling `exempt_items.txt`
 
-If you have a separate `exempt_items.txt` file that contains a list of exempt items, follow these steps:
+The challenge expects that certain products are exempt from taxes. These exempt items include books, food, and medical products. Follow these steps to handle exempt items:
 
-1. Create a text file named `exempt_items.txt`.
+1. Open the `exempt_items.txt` file located in the `data` folder.
 
-2. Add each exempt item on a separate line in the file.
+2. If the file doesn't exist, create a new text file named `exempt_items.txt` in the `data` folder.
+
+3. Add each exempt item on a separate line in the file, except for books, food, and medical products.
 
    Example `exempt_items.txt` file:
 
    ```
-   book
-   chocolate
-   pills
+   music CD
+   movie DVD
    ```
 
-3. Place the `exempt_items.txt` file in the `data` folder.
+   Please note that exempt items should be added without any specific formatting, with one item per line.
 
-4. Open the `main.rb` file located in the `root` folder.
+4. Save the `exempt_items.txt` file.
 
-5. Locate the following line of code in the `main.rb` file:
+5. Open the `main.rb` file located in the project's root folder.
+
+6. Locate the following line of code in the `main.rb` file:
 
    ```ruby
    exempt_items = File.readlines('data/exempt_items.txt').map(&:strip)
    ```
 
-6. Save the `main.rb` file.
-
-7. Run the program as mentioned in the "Usage" section, and the code will use the `exempt_items.txt` file to determine exempt items for tax calculations.
+7. Save the `main.rb` file.
 
 ---
 
