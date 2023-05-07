@@ -21,5 +21,9 @@ RSpec.describe Item do
       item = Item.new(1, 'imported bottle of perfume', 47.50, 4.75, 2.4)
       expect(item.total_price.round(2)).to eq(54.65)
     end
+
+    it 'raises an error for invalid float values' do
+      expect { Item.new(1, 'item', 'invalid_price') }.to raise_error("Invalid float value: invalid_price")
+    end
   end
 end

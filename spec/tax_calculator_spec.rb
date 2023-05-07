@@ -19,6 +19,21 @@ RSpec.describe TaxCalculator do
         expect(tax).to eq(1.50)
       end
     end
+    
+    context 'when the price is not numeric' do
+      it 'raises an error' do
+        price = 'invalid_price'
+        exempt = false
+        expect { TaxCalculator.calculate_sales_tax(price, exempt) }.to raise_error(ArgumentError, 'Input value must be numeric')
+      end
+    end
+
+    context 'when the price is negative' do
+      it 'raises an error' do
+        price = -10.0
+        expect { TaxCalculator.calculate_import_tax(price) }.to raise_error(ArgumentError, 'Input value must be greater than zero')
+      end
+    end
   end
   
   describe '#calculate_import_tax' do
@@ -26,6 +41,20 @@ RSpec.describe TaxCalculator do
       price = 10.00
       tax = TaxCalculator.calculate_import_tax(price)
       expect(tax).to eq(0.50)
+    end
+    
+    context 'when the price is not numeric' do
+      it 'raises an error' do
+        price = 'invalid_price'
+        expect { TaxCalculator.calculate_import_tax(price) }.to raise_error(ArgumentError, 'Input value must be numeric')
+      end
+    end
+
+    context 'when the price is negative' do
+      it 'raises an error' do
+        price = -10.0
+        expect { TaxCalculator.calculate_import_tax(price) }.to raise_error(ArgumentError, 'Input value must be greater than zero')
+      end
     end
   end
 end

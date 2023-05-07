@@ -32,9 +32,15 @@ if file_name.nil?
   exit
 end
 
-input_file = File.open(file_name)
-input = input_file.read
-input_file.close
+begin
+  input_file = File.open(file_name)
+  input = input_file.read
+  input_file.close
 
-receipt = parse_input(input)
-receipt.print_receipt
+  receipt = parse_input(input)
+  receipt.print_receipt
+rescue Errno::ENOENT
+  puts "File '#{file_name}' not found."
+rescue => e
+  puts "An error occurred while processing the file: #{e.message}"
+end
