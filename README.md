@@ -12,13 +12,13 @@ This project generates sales receipts based on input data provided in a text fil
 
 2. Navigate to the project directory.
 
-```
+```shell
 cd torc-challenge
 ```
 
 3. Install the required dependencies by running the following command:
 
-```
+```shell
 bundle install
 ```
 
@@ -33,15 +33,15 @@ bundle install
    1 music CD at 14.99
    1 chocolate bar at 0.85
    ```
-Note: Each item should be listed on a separate line, with the quantity, name, and price separated by spaces, and the name and price separated by the phrase "at".
 
+   Note: Each item should be listed on a separate line, with the quantity, name, and price separated by spaces, and the name and price separated by the phrase "at".
 
-2. Open the `main.rb` file located in the `root` folder.
+2. Open the `main.rb` file located in the root folder.
 
 3. Locate the following line of code in the `main.rb` file:
 
    ```ruby
-  exempt_items = File.readlines('data/exempt_items.txt').map(&:strip)
+   exempt_items = File.readlines('data/exempt_items.txt').map(&:strip)
    ```
 
 4. If you have a separate `exempt_items.txt` file that contains a list of exempt items, ensure it is present in the `data` folder. Update the line of code to point to the correct file path if needed.
@@ -50,11 +50,11 @@ Note: Each item should be listed on a separate line, with the quantity, name, an
 
 6. Run the following command to execute the code:
 
-```
+```shell
 ruby main.rb data/input.txt
 ```
 
-Replace `data/input.txt` with the path to your input file.
+   Replace `data/input.txt` with the path to your input file.
 
 7. The program will generate the sales receipt output, displaying the item details, sales taxes, and total amount.
 
@@ -62,7 +62,7 @@ Replace `data/input.txt` with the path to your input file.
 
 1. To run the tests, execute the following command:
 
-```
+```shell
 bundle exec rspec
 ```
 
